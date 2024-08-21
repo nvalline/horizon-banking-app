@@ -13,7 +13,7 @@ const Home = async () => {
 				<header className='home-header'>
 					<HeaderBox
 						type='greeting'
-						title='Welcome'
+						title='Welcome,'
 						user={loggedIn?.name || 'Guest'}
 						subtext='Conveniently access and handle your account and transactions.'
 					/>
