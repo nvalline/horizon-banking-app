@@ -32,7 +32,7 @@ const CategoryBadge = ({ category }: CategoryBadgeProps) => {
 
 const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 	return (
-		<Table>
+		<Table className='max-xl:overflow-y-scroll'>
 			<TableHeader className='bg-[#f9fafb]'>
 				<TableRow>
 					<TableHead className='px-2'>Transaction</TableHead>
@@ -84,7 +84,7 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 								{formatDateTime(new Date(transaction.date)).dateTime}
 							</TableCell>
 
-							<TableCell className='pl-2 pr-10 capitalize min-w-24'>
+							<TableCell className='pl-2 pr-10 capitalize min-w-24 max-md:hidden'>
 								{transaction.paymentChannel}
 							</TableCell>
 
