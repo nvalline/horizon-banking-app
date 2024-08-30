@@ -13,7 +13,6 @@ import {
 import { plaidClient } from '@/lib/plaid';
 import { revalidatePath } from 'next/cache';
 import { addFundingSource, createDwollaCustomer } from './dwolla.actions';
-import { parse } from 'path';
 
 const {
 	APPWRITE_DATABASE_ID: DATABASE_ID,
@@ -39,8 +38,9 @@ export const getUserInfo = async ({ userId }: getUserInfoProps) => {
 
 export const signIn = async ({ email, password }: signInProps) => {
 	try {
+		// console.log('EMAIL', email);
 		const { account } = await createAdminClient();
-
+		console.log('ACCOUNT', account);
 		const session = await account.createEmailPasswordSession(email, password);
 
 		cookies().set('appwrite-session', session.secret, {
