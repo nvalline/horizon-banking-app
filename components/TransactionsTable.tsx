@@ -32,7 +32,8 @@ const CategoryBadge = ({ category }: CategoryBadgeProps) => {
 
 const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 	return (
-		<Table className='max-xl:overflow-y-scroll'>
+		<Table>
+			{/* <Table className='max-xl:overflow-y-scroll'> */}
 			<TableHeader className='bg-[#f9fafb]'>
 				<TableRow>
 					<TableHead className='px-2'>Transaction</TableHead>
@@ -55,10 +56,10 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 						<TableRow
 							key={transaction.id}
 							className={`${
-								isDebit || amount[0] === '-' ? 'bg-[#fffbfa]' : 'bg-[#f6fef9]'
+								isDebit || amount[0] === '-' ? 'bg-[#FFFBFA]' : 'bg-[#F6FEF9]'
 							} !over:bg-none !border-b-DEFAULT`}
 						>
-							<TableCell className='max-w-[250px] pl-2 pr-10'>
+							<TableCell className='max-w-[250px] pl-2 pr-3.5'>
 								<div className='flex items-center gap-3'>
 									<h1 className='text-14 truncate font-semibold text-[#344054]'>
 										{removeSpecialCharacters(transaction.name)}
@@ -67,7 +68,7 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 							</TableCell>
 
 							<TableCell
-								className={`pl-2 pr-10 font-semibold ${
+								className={`pl-2 pr-3.5 font-semibold ${
 									isDebit || amount[0] === '-'
 										? 'text-[#f04438]'
 										: 'text-[#039855]'
@@ -76,19 +77,19 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
 								{isDebit ? `-${amount}` : isCredit ? amount : amount}
 							</TableCell>
 
-							<TableCell className='pl-2 pr-10'>
+							<TableCell className='pl-2 pr-3.5'>
 								<CategoryBadge category={status} />
 							</TableCell>
 
-							<TableCell className='pl-2 pr-10 min-w-32'>
+							<TableCell className='pl-2 pr-3.5 min-w-32'>
 								{formatDateTime(new Date(transaction.date)).dateTime}
 							</TableCell>
 
-							<TableCell className='pl-2 pr-10 capitalize min-w-24 max-md:hidden'>
+							<TableCell className='pl-2 pr-3.5 capitalize min-w-24 max-md:hidden'>
 								{transaction.paymentChannel}
 							</TableCell>
 
-							<TableCell className='pl-2 pr-10 max-md:hidden'>
+							<TableCell className='pl-2 pr-3.5 max-md:hidden'>
 								<CategoryBadge category={transaction.category} />
 							</TableCell>
 						</TableRow>
